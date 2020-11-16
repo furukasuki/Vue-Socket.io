@@ -1,3 +1,4 @@
+// @ts-ignore
 import SocketIOClient from "socket.io-client";
 import {
     DefaultComputed,
@@ -20,6 +21,7 @@ interface Sockets<V> {
 
 declare module 'vue/types/vue' {
     interface Vue {
+// @ts-ignore
         $socket: SocketIOClient.Socket,
         sockets: {
             subscribe(eventName: string, handler: socketHandler<Vue>): void,
@@ -42,6 +44,7 @@ declare module 'vue/types/options' {
 
 export interface VueSocketOptions {
     debug?: boolean;
+// @ts-ignore
     connection: string | SocketIOClient.Socket,
     vuex?: {
         store?: Store<any>,
